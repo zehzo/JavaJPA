@@ -1,10 +1,19 @@
 package br.com.fuctura.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "usuario")
 public class Usuario {
+	@Id
 	private long codigo;
-	private String nome = "";
-	private String email = "";
-	private int idade = 1;
+	private String nome;
+	private String email;
+	private int idade ;
+	@Transient
 	private Senha senha;
 
 
@@ -17,15 +26,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
-	public Usuario(long codigo, String nome, String email, int idade, String senha) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.email = email;
-		this.idade = idade;
-		this.senha = new Senha(senha);
-	}
-
 	public long getCodigo() {
 		return codigo;
 	}
