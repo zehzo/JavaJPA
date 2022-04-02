@@ -1,17 +1,26 @@
 package br.com.fuctura.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "senha")
 public class Senha {
-	private long codigo;//id
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long codigo;
 	private String valor;
 
-
-	public Senha(String valor) {
-		super();
-		this.valor = valor;
-	}
-
+	
 	public Senha() {
 		super();
+	}
+
+	public Senha(String valor) {
+		this.valor = valor;
 	}
 
 	public long getCodigo() {
